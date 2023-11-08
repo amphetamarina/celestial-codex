@@ -1,5 +1,5 @@
 {
-  "name": "@marinacabs/openai-assistant",
+  "name": "@marinarosa/openai-assistant",
   "module": "index.ts",
   "type": "module",
   "devDependencies": {

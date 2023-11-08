@@ -22,7 +22,7 @@ bun test
 Example on how to use this library:
 
 ```typescript
-import AssistantLibrary from "@marinacabs/openai-assistant";
+import AssistantLibrary from "@marinarosa/openai-assistant";
 
 const assistant = new AssistantLibrary("OPENAI_API_KEY", "ASSISTANT_ID");
 assistant.getResponse("Hello, assistant!").then(response => {
