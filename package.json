@@ -1,6 +1,7 @@
 {
   "name": "@marinarosa/openai-assistant",
   "module": "index.ts",
+  "publishConfig": { "access": "public" },
   "type": "module",
   "devDependencies": {
     "bun-types": "latest"
