@@ -10,5 +10,6 @@
   },
   "dependencies": {
     "openai": "^4.16.1"
-  }
+  },
+  "version": "1.0.0"
 }
