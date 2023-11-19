@@ -1,0 +1,14 @@
+{
+  "name": "docs-reader",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "bun-types": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@marinarosa/openai-assistant": "^1.0.0"
+  }
+}
