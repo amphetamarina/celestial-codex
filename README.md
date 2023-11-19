@@ -5,7 +5,7 @@ This is a library that allows you to interact with the OpenAI Assistant API. It 
 ## Installation
 
 ```
-pnpm i @marinacabs/openai-assistant
+pnpm i @marinarosa/openai-assistant
 ```
 
 ## Usage
@@ -13,7 +13,7 @@ pnpm i @marinacabs/openai-assistant
 Here is a basic example of how to use this library:
 
 ```typescript
-import AssistantLibrary from "@marinacabs/openai-assistant";
+import AssistantLibrary from "@marinarosa/openai-assistant";
 
 const assistant = new AssistantLibrary("OPENAI_API_KEY", "ASSISTANT_ID");
 
