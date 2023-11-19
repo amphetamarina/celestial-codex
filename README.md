@@ -1,14 +1,34 @@
-# @marinacabs/openai-assistant
+# WIP: openai-assistant library
 
-To install dependencies:
+This is a library that allows you to interact with the OpenAI Assistant API. It provides a simple and intuitive interface.
 
-```bash
-bun install
+## Installation
+
+```
+pnpm i @marinacabs/openai-assistant
 ```
 
-To run:
+## Usage
+
+Here is a basic example of how to use this library:
+
+```typescript
+import AssistantLibrary from "@marinacabs/openai-assistant";
+
+const assistant = new AssistantLibrary("OPENAI_API_KEY", "ASSISTANT_ID");
+
+const response = await assistant.getResponse("Hello, assistant!");
+``````
+
+## Developing
+
+### Requirements
+- devbox (optional)
+- bun
 
 ```bash
+devbox shell
+bun install
 bun run index.ts
 ```
 
@@ -19,14 +39,4 @@ To test:
 bun test
 ```
 
-Example on how to use this library:
-
-```typescript
-import AssistantLibrary from "@marinarosa/openai-assistant";
-
-const assistant = new AssistantLibrary("OPENAI_API_KEY", "ASSISTANT_ID");
-assistant.getResponse("Hello, assistant!").then(response => {
-  console.log(response);
-});
-```
 This project was created using `bun init` in bun v1.0.10. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
