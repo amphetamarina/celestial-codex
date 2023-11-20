@@ -11,9 +11,9 @@ describe('AssistantLibrary', () => {
 
   // Successfully call getResponse() method with valid content and retrieve a response from OpenAI API
   it('should successfully call getResponse() method with valid content and retrieve a response from OpenAI API', async () => {
-    const mockGetResponse = mock(AssistantLibrary.prototype.getResponse)
-    AssistantLibrary.prototype.getResponse = mockGetResponse;
-    mockGetResponse.mockImplementation(() => Promise.resolve("Mocked response"));
+    afterEach(() => {
+      jest.restoreAllMocks();
+    });
 
     const assistantLibrary = new AssistantLibrary("test", "test");
     const response = await assistantLibrary.getResponse("Hello");
