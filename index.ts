@@ -6,15 +6,14 @@ class AssistantLibrary {
     private openAIApiKey: string;
 
     constructor(openAIApiKey: string, assistantId: string) {
-        this.openAIApiKey = openAIApiKey;
-        if (!this.openAIApiKey) throw new Error("Missing openAIApiKey")
-
+        const MISSING_OPENAI_API_KEY_ERROR = "Missing openAIApiKey";
+        const MISSING_ASSISTANT_ID_ERROR = "Assistant ID is missing";
+        if (!openAIApiKey) throw new Error(MISSING_OPENAI_API_KEY_ERROR);
+        if (!assistantId) throw new Error(MISSING_ASSISTANT_ID_ERROR);
         this.openai = new OpenAI({
-            apiKey: this.openAIApiKey,
+            apiKey: openAIApiKey,
         });
-
         this.assistantId = assistantId;
-        if (!this.assistantId) throw new Error("Assistant ID is missing");
     }
 
     private getAssistant(): Promise<any> {

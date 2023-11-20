@@ -23,7 +23,6 @@ describe('AssistantLibrary', () => {
         expect(response).toBe("Mocked response");
       });
 
-
     // Throw an error when creating an instance of AssistantLibrary with invalid OPENAI_API_KEY environment variable
     it('should throw an error when creating an instance of AssistantLibrary with invalid OPENAI_API_KEY environment variable', () => {
         expect(() => new AssistantLibrary("", "")).toThrow("Missing openAIApiKey");
