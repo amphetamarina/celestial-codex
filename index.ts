@@ -2,23 +2,23 @@ import OpenAI from "openai";
 
 class AssistantLibrary {
     private openai: OpenAI;
-    private ASSISTANT_ID: string;
-    private OPENAI_API_KEY: string;
+    private assistantId: string;
+    private openAIApiKey: string;
 
-    constructor(OPENAI_API_KEY?: string, ASSISTANT_ID?: string) {
-        this.OPENAI_API_KEY = OPENAI_API_KEY || process.env.OPENAI_API_KEY!;
-        if (!this.OPENAI_API_KEY) throw new Error("Missing OPENAI_API_KEY")
+    constructor(openAIApiKey: string, assistantId: string) {
+        this.openAIApiKey = openAIApiKey;
+        if (!this.openAIApiKey) throw new Error("Missing openAIApiKey")
 
         this.openai = new OpenAI({
-            apiKey: this.OPENAI_API_KEY,
+            apiKey: this.openAIApiKey,
         });
 
-        this.ASSISTANT_ID = ASSISTANT_ID || process.env.ASSISTANT_ID!;
-        if (!this.ASSISTANT_ID) throw new Error("Assistant ID is missing");
+        this.assistantId = assistantId;
+        if (!this.assistantId) throw new Error("Assistant ID is missing");
     }
 
     private getAssistant(): Promise<any> {
-        return this.openai.beta.assistants.retrieve(this.ASSISTANT_ID);
+        return this.openai.beta.assistants.retrieve(this.assistantId);
     }
 
     private createThread(): Promise<any> {
@@ -39,7 +39,7 @@ class AssistantLibrary {
         return this.openai.beta.threads.runs.create(
             threadId,
             {
-                assistant_id: assistantId,
+                assistant_id: assistantId
             }
         );
     }
