@@ -14,6 +14,7 @@ class AssistantLibrary {
             apiKey: openAIApiKey,
         });
         this.assistantId = assistantId;
+        console.info("Assistant configured and ready.")
     }
 
     private getAssistant(): Promise<any> {
