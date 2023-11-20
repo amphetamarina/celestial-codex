@@ -1,5 +1,5 @@
 {
-  "name": "@marinarosa/openai-assistant",
+  "name": "@tecnocapital/celestial-codex",
   "module": "index.ts",
   "publishConfig": { "access": "public" },
   "type": "module",
