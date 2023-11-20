@@ -9,6 +9,6 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "@marinarosa/openai-assistant": "^1.0.0"
+    "@tecnocapital/celestial-codex": "^1.0.0"
   }
 }
