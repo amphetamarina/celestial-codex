@@ -6,15 +6,14 @@ class AssistantLibrary {
     private OPENAI_API_KEY: string;
 
     constructor(OPENAI_API_KEY?: string, ASSISTANT_ID?: string) {
-        this.OPENAI_API_KEY = OPENAI_API_KEY || undefined;
+        this.OPENAI_API_KEY = OPENAI_API_KEY || process.env.OPENAI_API_KEY!;
         if (!this.OPENAI_API_KEY) throw new Error("Missing OPENAI_API_KEY")
 
         this.openai = new OpenAI({
             apiKey: this.OPENAI_API_KEY,
         });
 
-        this.ASSISTANT_ID = ASSISTANT_ID || undefined;
-
+        this.ASSISTANT_ID = ASSISTANT_ID || process.env.ASSISTANT_ID!;
         if (!this.ASSISTANT_ID) throw new Error("Assistant ID is missing");
     }
 
