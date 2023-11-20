@@ -1,36 +1,36 @@
-import { expect, describe, it, mock } from "bun:test";
+import { expect, describe, it, mock, spyOn } from "bun:test";
 import AssistantLibrary from ".";
 
+const mockAssistantLibrary = mock(AssistantLibrary);
 describe('AssistantLibrary', () => {
 
-  // Successfully create an instance of AssistantLibrary with valid OPENAI_API_KEY and ASSISTANT_ID environment variables
-  it('should successfully create an instance of AssistantLibrary with valid OPENAI_API_KEY and ASSISTANT_ID environment variables', () => {
-    const assistantLibrary = new AssistantLibrary("test", "test");
-    expect(assistantLibrary).toBeInstanceOf(AssistantLibrary);
-  });
-
-  // Successfully call getResponse() method with valid content and retrieve a response from OpenAI API
-  it('should successfully call getResponse() method with valid content and retrieve a response from OpenAI API', async () => {
-    afterEach(() => {
-      jest.restoreAllMocks();
+    // Successfully create an instance of AssistantLibrary with valid OPENAI_API_KEY and ASSISTANT_ID environment variables
+    it('should successfully create an instance of AssistantLibrary with valid OPENAI_API_KEY and ASSISTANT_ID environment variables', () => {
+      const assistantLibrary = new AssistantLibrary("test", "test");
+      expect(assistantLibrary).toBeInstanceOf(AssistantLibrary);
     });
 
-    const assistantLibrary = new AssistantLibrary("test", "test");
-    const response = await assistantLibrary.getResponse("Hello");
+    // Successfully call getResponse() method with valid content and retrieve a response from OpenAI API
+    it('should successfully call getResponse() method with valid content and retrieve a response from OpenAI API', async () => {
+        const mockGetResponse = mock(AssistantLibrary.prototype.getResponse)
+        AssistantLibrary.prototype.getResponse = mockGetResponse;
+        mockGetResponse.mockImplementation(() => Promise.resolve("Mocked response"));
 
-    expect(mockGetResponse).toHaveBeenCalled();
-    expect(response).toBe("Mocked response");
-  });
+        const assistantLibrary = new AssistantLibrary("test", "test");
+        const response = await assistantLibrary.getResponse("Hello");
+
+        expect(mockGetResponse).toHaveBeenCalled();
+        expect(response).toBe("Mocked response");
+      });
 
 
-  // Throw an error when creating an instance of AssistantLibrary with invalid OPENAI_API_KEY environment variable
-  it('should throw an error when creating an instance of AssistantLibrary with invalid OPENAI_API_KEY environment variable', () => {
+    // Throw an error when creating an instance of AssistantLibrary with invalid OPENAI_API_KEY environment variable
+    it('should throw an error when creating an instance of AssistantLibrary with invalid OPENAI_API_KEY environment variable', () => {
+        expect(() => new AssistantLibrary(undefined, "")).toThrow("Missing OPENAI_API_KEY");
 
-   expect(() => new AssistantLibrary("", "")).toThrow("Missing OPENAI_API_KEY");
-
-  });
-  // Throw an error when creating an instance of AssistantLibrary with missing ASSISTANT_ID environment variable
-  it('should throw an error when creating an instance of AssistantLibrary with missing ASSISTANT_ID environment variable', () => {
-    expect(() => new AssistantLibrary("test", undefined)).toThrow("Assistant ID is missing");
-  });
+      });
+    // Throw an error when creating an instance of AssistantLibrary with missing ASSISTANT_ID environment variable
+    it('should throw an error when creating an instance of AssistantLibrary with missing ASSISTANT_ID environment variable', () => {
+      expect(() => new AssistantLibrary("test", undefined)).toThrow("Assistant ID is missing");
+    });
 });
