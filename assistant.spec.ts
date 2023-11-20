@@ -26,11 +26,11 @@ describe('AssistantLibrary', () => {
 
     // Throw an error when creating an instance of AssistantLibrary with invalid OPENAI_API_KEY environment variable
     it('should throw an error when creating an instance of AssistantLibrary with invalid OPENAI_API_KEY environment variable', () => {
-        expect(() => new AssistantLibrary(undefined, "")).toThrow("Missing OPENAI_API_KEY");
+        expect(() => new AssistantLibrary("", "")).toThrow("Missing openAIApiKey");
 
       });
     // Throw an error when creating an instance of AssistantLibrary with missing ASSISTANT_ID environment variable
     it('should throw an error when creating an instance of AssistantLibrary with missing ASSISTANT_ID environment variable', () => {
-      expect(() => new AssistantLibrary("test", undefined)).toThrow("Assistant ID is missing");
+      expect(() => new AssistantLibrary("test", "")).toThrow("Assistant ID is missing");
     });
 });
