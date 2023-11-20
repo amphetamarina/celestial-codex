@@ -54,7 +54,7 @@ class AssistantLibrary {
 
         if (!passedThreadId) throw new Error('Could not create thread');
         await this.createMessage(passedThreadId, content);
-        const run = await this.createRun(passedThreadId, assistant.id);
+        const run = await this.createRun(passedThreadId, this.assistantId);
         return new Promise((resolve) => {
             const checkCompletion = async () => {
                 if (!passedThreadId) throw new Error('Could not create thread');
