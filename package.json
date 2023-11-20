@@ -1,7 +1,9 @@
 {
   "name": "@tecnocapital/celestial-codex",
   "module": "index.js",
-  "publishConfig": { "access": "public" },
+  "publishConfig": {
+    "access": "public"
+  },
   "type": "module",
   "devDependencies": {
     "bun-types": "latest"
@@ -12,5 +14,5 @@
   "dependencies": {
     "openai": "^4.16.1"
   },
-  "version": "1.0.0"
+  "version": "1.0.1"
 }
