@@ -1,6 +1,6 @@
 {
   "name": "@tecnocapital/celestial-codex",
-  "module": "index.ts",
+  "module": "index.js",
   "publishConfig": { "access": "public" },
   "type": "module",
   "devDependencies": {

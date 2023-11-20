@@ -16,7 +16,7 @@ npm i @tecnocapital/celestial-codex
 To commune with the cosmic intelligence, follow this basic example:
 
 ```typescript
-import AssistantLibrary from "@marinarosa/openai-assistant";
+import AssistantLibrary from "@tecnocapital/celestial-codex";
 
 const assistant = new AssistantLibrary("your-openai-key", "your-assistant-id");
 

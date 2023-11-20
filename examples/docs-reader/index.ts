@@ -11,6 +11,7 @@ if (!arg) {
 }
 
 try {
+    console.log("waiting for assistant", process.env.ASSISTANT_ID)
   const response: any = await assistant.getResponse(arg);
   if (response && response.value) {
     console.log(response.value);
